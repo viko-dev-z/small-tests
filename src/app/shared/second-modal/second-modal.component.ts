@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 
@@ -12,6 +12,7 @@ export class SecondModalComponent implements OnInit {
   inputsForm: FormGroup;
   Spacing: number;
   DLarge: number;
+  @Output() passData: EventEmitter<Object> = new EventEmitter();
 
   constructor(private modalService: NgbModal, private fb: FormBuilder) {}
 
@@ -57,4 +58,7 @@ export class SecondModalComponent implements OnInit {
     }
   }
 
+  setValues() {
+    this.passData.emit({Spacing: this.Spacing, DLarge: this.DLarge});
+  }
 }

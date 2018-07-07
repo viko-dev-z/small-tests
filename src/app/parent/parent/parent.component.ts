@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-parent',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
+  spacing: number;
+  length: number;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  getData(message: any) {
+    this.spacing = message.Spacing;
+    this.length = message.DLarge;
+    console.log(this.spacing);
+    console.log(this.length);
+  }
 }
