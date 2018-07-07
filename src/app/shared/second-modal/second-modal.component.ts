@@ -18,8 +18,8 @@ export class SecondModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.inputsForm = this.fb.group({
-      Spacing: [this.Spacing, []],
-      DLarge: [this.DLarge, []]
+      Spacing: [this.Spacing, [Validators.required, this.checkSpacing]],
+      DLarge: [this.DLarge, [Validators.required, this.checkDLarge]]
     });
   }
 
@@ -38,6 +38,22 @@ export class SecondModalComponent implements OnInit {
       return 'by clicking on a backdrop';
     } else {
       return `with: ${reason}`;
+    }
+  }
+
+  // validations
+  checkSpacing(control: FormControl) {
+    if (control.value === 16 || control.value === 24) {
+      return{validSpacing: false};
+    }
+    return {validSpacing: true};
+  }
+
+  checkDLarge(control: FormControl) {
+    if (control.value === 3.5 || control.value === 4 || control.value === 6) {
+      return {validD: false};
+    } else {
+      return {validD: true};
     }
   }
 

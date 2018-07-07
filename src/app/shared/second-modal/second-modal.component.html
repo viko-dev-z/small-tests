@@ -19,6 +19,10 @@
             </div>
             <div class="col-6">
               <input type="number" name="Spacing" formControlName="Spacing" class="form-control"  [(ngModel)]="Spacing" >
+              <p class="error-msg" *ngIf="inputsForm.controls.Spacing.errors.required &&
+                            inputsForm.controls.Spacing.dirty">
+                This field is required!</p>
+              <p  class="error-msg" *ngIf=" inputsForm.controls.Spacing.dirty && inputsForm.get('Spacing').errors.validSpacing"> Spacing can only be 16 or 24 inches</p>
             </div>
           </div>
           <div class="row">
@@ -27,6 +31,9 @@
             </div>
             <div class="col-6">
               <input type="number" name="DLarge" formControlName="DLarge" class="form-control" [(ngModel)]="DLarge" >
+              <p class="error-msg" *ngIf="inputsForm.controls.DLarge.errors.required &&
+                                inputsForm.controls.DLarge.dirty">d is required</p>
+              <p  class="error-msg" *ngIf=" inputsForm.controls.DLarge.dirty && inputsForm.get('DLarge').errors.validD"> Enter 3.5 or 4 or 6</p>
             </div>
           </div>
         </div>
