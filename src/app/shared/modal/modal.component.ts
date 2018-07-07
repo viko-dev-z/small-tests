@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder} from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-modal',
@@ -29,5 +29,8 @@ export class ModalComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+
+  ngOnInit() {
   }
 }
